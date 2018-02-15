@@ -10,7 +10,7 @@ namespace BusinessLogic.Interface
     {
         IEnumerable<Account> AccountGet();
         int AccountInsert(Account emp);
-        int AccountUpdate(Account emp);
+        int AccountUpdate(EditAccountBindingModel model, Account user);
         // int AdminDelete(int id);
     }
 }

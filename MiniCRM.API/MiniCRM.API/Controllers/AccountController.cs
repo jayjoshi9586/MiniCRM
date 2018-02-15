@@ -479,6 +479,59 @@ namespace MiniCRM.API.Controllers
         }
 
         [JWTAuthenticationFilter]
+        [Route("EditAccount")]
+        public IHttpActionResult EditAccount(EditAccountBindingModel model)
+        {
+
+            int result;
+            //var id=User.Identity.GetUserId();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Account account = _accountLog.AccountGet(model.Account_id);
+            // ApplicationUser user;//= await UserManager.FindByNameAsync(model.username);
+            //user = applicationDbContext.Users.AsNoTracking().Where(a => a.UserName == model.username).FirstOrDefault();
+
+            if (account == null)
+            {
+                return BadRequest("No such Account. Try Again");
+            }
+
+            result = _accountLog.AccountUpdate(model, account);
+
+            if (result == 1)
+            {
+                return Ok("Changes Saved Successfully!");
+            }
+
+            return InternalServerError();
+        }
+
+
+        [JWTAuthenticationFilter]
+        [Route("CreateAccountBranch")]
+        public IHttpActionResult CreateAccountBranch(CreateAccountBranchBindingModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Accounts_branch branch = new Accounts_branch() { Account_branch_id=model.Account_branch_id, Account_email=model.Account_email, Account_phone=model.Account_phone, Account_address=model.Account_address, Account_images= model.Account_images };
+            int response = _accountLog.BranchInsert(branch);
+            if (response == 1)
+            {
+                return Ok("Branch has been added");
+            }
+            else
+            {
+                return BadRequest("There was some error please try again.");
+            }
+            //var account = new Account() { Account_id = model.Account_id, Account_global_email = model.Account_global_email, Account_name = model.Account_name, Account_brand_logo=model.Account_brand_logo };
+            // return Ok();
+        }
+
+        [JWTAuthenticationFilter]
         public Account Get(int id)
         {
             return _accountLog.AccountGet(id);

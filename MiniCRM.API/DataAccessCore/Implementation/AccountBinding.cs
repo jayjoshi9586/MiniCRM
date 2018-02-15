@@ -19,7 +19,7 @@ namespace DataAccessCore.Implementation
         private bool disposed = false;
 
         private DataAccess<Account> AccountInfoRepository;// = new DataAccess<Account>(MiniCRMModel);
-
+        private DataAccess<Accounts_branch> BranchInfoRepository;// = new DataAccess<Account>(MiniCRMModel);
         /// <summary>
         /// Initializes a new instance of the MyModel class
         /// </summary>
@@ -47,6 +47,18 @@ namespace DataAccessCore.Implementation
             }
         }
 
+        public DataAccess<Accounts_branch> GetBranchRepository
+        {
+            get
+            {
+                if (this.BranchInfoRepository == null)
+                {
+                    this.BranchInfoRepository = new DataAccess<Accounts_branch>(this.objMyModel);
+                }
+
+                return this.BranchInfoRepository;
+            }
+        }
 
         /// <summary>
         /// This Method will commit the changes to database for the permanent save

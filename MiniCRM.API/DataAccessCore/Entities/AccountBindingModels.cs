@@ -37,14 +37,90 @@ namespace DataAccessCore.Entities
 
     public class CreateAccountBindingModel
     {
+        [Required]
         public int Account_id { get; set; }
 
+        [Required]
         public string Account_name { get; set; }
 
         [Column(TypeName = "image")]
         public byte[] Account_brand_logo { get; set; }
 
+        [Required]
+        [Display(Name = "AccountGlobalEmail")]
         public string Account_global_email { get; set; }
+    }
+
+    public class EditAccountBindingModel
+    {
+        [Required]
+        public int Account_id { get; set; }
+
+        
+        public string Account_name { get; set; }
+
+        [Column(TypeName = "image")]
+        public byte[] Account_brand_logo { get; set; }
+
+        
+        [Display(Name = "AccountGlobalEmail")]
+        public string Account_global_email { get; set; }
+    }
+
+    public class CreateAccountBranchBindingModel
+    {
+        [Required]
+        [Display(Name = "BranchID")]
+        public int Account_branch_id { get; set; }
+
+        [Required]
+        [Display(Name = "TimingID")]
+        public int Timing_id { get; set; }
+
+        [Column(TypeName = "image")]
+        [Display(Name = "AccountImage")]
+        public byte[] Account_images { get; set; }
+
+        [Required]
+        [Display(Name = "AccountAddress")]
+        public string Account_address { get; set; }
+
+        [Required]
+        [Display(Name = "Phonenumber")]
+        [Column(TypeName = "numeric")]
+        public decimal? Account_phone { get; set; }
+
+        [Required]
+        [Display(Name = "AccountEmail")]
+        public string Account_email { get; set; }
+    }
+
+    public class EditBranchBindingModel
+    {
+        [Required]
+        [Display(Name = "BranchID")]
+        public int Account_branch_id { get; set; }
+
+        [Required]
+        [Display(Name = "TimingID")]
+        public int Timing_id { get; set; }
+
+        [Column(TypeName = "image")]
+        [Display(Name = "AccountImage")]
+        public byte[] Account_images { get; set; }
+
+        [Required]
+        [Display(Name = "AccountAddress")]
+        public string Account_address { get; set; }
+
+        [Required]
+        [Display(Name = "Phonenumber")]
+        [Column(TypeName = "numeric")]
+        public decimal? Account_phone { get; set; }
+
+        [Required]
+        [Display(Name = "AccountEmail")]
+        public string Account_email { get; set; }
     }
 
     public class ChangePasswordBindingModel
