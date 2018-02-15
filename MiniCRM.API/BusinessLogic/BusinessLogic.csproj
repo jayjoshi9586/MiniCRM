@@ -43,6 +43,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Interface\IAccount.cs" />
     <Compile Include="Interface\IAdmin.cs" />
+    <Compile Include="Interface\IBeacon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

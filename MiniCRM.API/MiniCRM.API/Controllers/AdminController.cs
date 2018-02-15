@@ -19,6 +19,7 @@ using System.Security.Cryptography;
 
 namespace EasyCRM.API.Controllers
 {
+    [JWTAuthenticationFilter]
     [RoutePrefix("api/Admin")]
     public class AdminController : ApiController
     {

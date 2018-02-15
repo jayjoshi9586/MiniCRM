@@ -38,11 +38,14 @@ namespace DataAccessCore.Entities
     public class CreateAccountBindingModel
     {
         [Required]
+        [Display(Name = "AccountID")]
         public int Account_id { get; set; }
 
         [Required]
+        [Display(Name = "Accountname")]
         public string Account_name { get; set; }
 
+        [Display(Name = "AccountBrandLogo")]
         [Column(TypeName = "image")]
         public byte[] Account_brand_logo { get; set; }
 
@@ -54,17 +57,58 @@ namespace DataAccessCore.Entities
     public class EditAccountBindingModel
     {
         [Required]
+        [Display(Name = "AccountID")]
         public int Account_id { get; set; }
 
-        
+        [Display(Name = "Accountname")]
         public string Account_name { get; set; }
 
+        [Display(Name = "AccountBrandLogo")]
         [Column(TypeName = "image")]
         public byte[] Account_brand_logo { get; set; }
 
-        
         [Display(Name = "AccountGlobalEmail")]
         public string Account_global_email { get; set; }
+    }
+
+    public class AddBeaconBindingModel
+    {
+        [Required]
+        [Display(Name = "BeaconID")]
+        public int Beacon_id { get; set; }
+
+        [Required]
+        [Display(Name = "BeaconTitle")]
+        [StringLength(50)]
+        public string Beacon_title { get; set; }
+
+        [Required]
+        [Display(Name = "UUID")]
+        [StringLength(50)]
+        public string Beacon_uuid { get; set; }
+
+        [Required]
+        [Display(Name = "Major")]
+        public int Beacon_major { get; set; }
+
+        [Required]
+        [Display(Name = "Minor")]
+        public int Beacon_minor { get; set; }
+
+        [Required]
+        [Display(Name = "RSSI")]
+        public int Beacon_rssi { get; set; }
+
+        [Display(Name = "TriggerInterval")]
+        public TimeSpan? Beacon_trigger_interval { get; set; }
+
+        [Display(Name = "BeaconProximity")]
+        [StringLength(10)]
+        public string Beacon_trigger_proximity { get; set; }
+
+        [Display(Name = "BeaconMessage")]
+        [StringLength(50)]
+        public string Beacon_message { get; set; }
     }
 
     public class CreateAccountBranchBindingModel

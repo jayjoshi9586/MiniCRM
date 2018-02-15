@@ -67,6 +67,14 @@ namespace DataAccessCore.Implementation
             
             return context.Admins.FirstOrDefault(acc => acc.Admin_username == Username);
         }
+        public virtual TEntity GetByName(string Username)
+        {
+            //var dbEntry = context.Admins.FirstOrDefault(acc => acc.Admin_username == Username);
+            //return this.dbSet.Find(Username);
+            return this.dbSet.Find(Username);
+
+            //return context.Admins.FirstOrDefault(acc => acc.Admin_username == Username);
+        }
 
         public virtual Account GetByAccountname(string Accountname)
         {

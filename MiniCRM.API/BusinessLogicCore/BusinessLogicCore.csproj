@@ -44,6 +44,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Implementation\AccountLog.cs" />
     <Compile Include="Implementation\AdminLog.cs" />
+    <Compile Include="Implementation\BeaconLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

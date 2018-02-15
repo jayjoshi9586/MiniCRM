@@ -20,6 +20,7 @@ namespace DataAccessCore.Implementation
         private DataAccess<Admin> AdminInfoRepository;
         private DataAccess<Account> AccountInfoRepository;// = new DataAccess<Account>(MiniCRMModel);
         private DataAccess<Accounts_branch> BranchInfoRepository;// = new DataAccess<Account>(MiniCRMModel);
+        private DataAccess<Beacon> BeaconInfoRepository;
 
         /// <summary>
         /// Initializes a new instance of the MyModel class
@@ -70,6 +71,19 @@ namespace DataAccessCore.Implementation
                 }
 
                 return this.BranchInfoRepository;
+            }
+        }
+
+        public DataAccess<Beacon> GetBeaconRepository
+        {
+            get
+            {
+                if (this.BeaconInfoRepository == null)
+                {
+                    this.BeaconInfoRepository = new DataAccess<Beacon>(this.objMyModel);
+                }
+
+                return this.BeaconInfoRepository;
             }
         }
 
