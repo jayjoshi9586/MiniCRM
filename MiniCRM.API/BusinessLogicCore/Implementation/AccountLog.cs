@@ -75,7 +75,7 @@ namespace BusinessLogicCore.Implementation
         //    }
         //}
 
-        public int AccountInsert(CreateAccountBindingModel emp)
+        public int AccountInsert(Account emp)
         {
             this.binding.GetAccountRepository.Insert(emp);
             int inserData = this.binding.Save();

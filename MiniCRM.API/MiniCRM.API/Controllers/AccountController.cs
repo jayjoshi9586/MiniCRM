@@ -455,16 +455,18 @@ namespace MiniCRM.API.Controllers
         //    model.Validated(ticket);
         //    model.Request.Context.Authentication.SignIn(cookiesIdentity);
         //}
+
         [JWTAuthenticationFilter]
         [Route("CreateAccount")]
-        public IHttpActionResult CreateAccount(Account model)
+        public IHttpActionResult CreateAccount(CreateAccountBindingModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            int response = _accountLog.AccountInsert(model);
-            if(response==1)
+            Account account = new Account() { Account_id = model.Account_id, Account_name = model.Account_name, Account_global_email=model.Account_global_email, Account_brand_logo=model.Account_brand_logo};
+            int response = _accountLog.AccountInsert(account);
+            if (response == 1)
             {
                 return Ok("Account has been added");
             }
@@ -473,7 +475,7 @@ namespace MiniCRM.API.Controllers
                 return BadRequest("There was some error please try again.");
             }
             //var account = new Account() { Account_id = model.Account_id, Account_global_email = model.Account_global_email, Account_name = model.Account_name, Account_brand_logo=model.Account_brand_logo };
-           // return Ok();
+            // return Ok();
         }
 
         [JWTAuthenticationFilter]

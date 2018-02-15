@@ -8,6 +8,12 @@ namespace DataAccessCore.Entities
 
     public partial class Accounts_branch
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Accounts_branch()
+        {
+            Accounts = new HashSet<Account>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Account_branch_id { get; set; }
@@ -24,10 +30,11 @@ namespace DataAccessCore.Entities
 
         public string Account_email { get; set; }
 
-        public int Account_id { get; set; }
-
-        public virtual Account Account { get; set; }
+        public bool IsDeleted { get; set; }
 
         public virtual Timing_Table Timing_Table { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

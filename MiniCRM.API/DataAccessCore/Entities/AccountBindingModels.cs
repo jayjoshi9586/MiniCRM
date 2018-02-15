@@ -28,6 +28,13 @@ namespace DataAccessCore.Entities
 
     }
 
+    public class UsernameSpecificBindingModel
+    {
+        [Required]
+        [Display(Name = "UserName")]
+        public string Username { get; set; }
+    }
+
     public class CreateAccountBindingModel
     {
         public int Account_id { get; set; }

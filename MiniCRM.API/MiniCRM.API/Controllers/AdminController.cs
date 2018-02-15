@@ -26,21 +26,49 @@ namespace EasyCRM.API.Controllers
         private MiniCRMModel applicationDbContext = new MiniCRMModel();
         AdminLog adminobj = new AdminLog();
         // GET: api/Admin
+        [JWTAuthenticationFilter]
         public IEnumerable<Admin> Get()
         {
             return adminobj.AdminGet();
         }
 
         // GET: api/Admin/5
-        
+        [JWTAuthenticationFilter]
         public Admin Get(int id)
         {
             return adminobj.AdminGet(id);
         }
+        [JWTAuthenticationFilter]
         [Route("GetByUsername")]
-        public Admin GetbyUserName(String Username)
+        public Admin GetbyUserName(UsernameSpecificBindingModel model)
         {
-            return _adminLog.GetByUsername(Username);
+            return _adminLog.GetByUsername(model.Username);
+        }
+
+        [JWTAuthenticationFilter]
+        [Route("ActivateUser")]
+        public IHttpActionResult ActivateUser(UsernameSpecificBindingModel model)
+        {
+            int response = _adminLog.ActivateUser(model.Username);
+            if (response==1)
+            {
+                return Ok("User Activated");
+            }
+
+            return BadRequest("Could not activate the user. Please try again.");
+        }
+
+        [JWTAuthenticationFilter]
+        [Route("DeActivateUser")]
+        public IHttpActionResult DeActivateUser(UsernameSpecificBindingModel model)
+        {
+            int response = _adminLog.DeActivateUser(model.Username);
+            if (response == 1)
+            {
+                return Ok("User Activated");
+            }
+
+            return BadRequest("Could not activate the user. Please try again.");
         }
 
         [AllowAnonymous]
@@ -51,7 +79,7 @@ namespace EasyCRM.API.Controllers
             {
                 return BadRequest(ModelState);
             }
-            Admin admin = new Admin() { Admin_id = model.Admin_id, Admin_username = model.Username, Admin_email = model.Email, Admin_type_id = model.Admin_type_id, Admin_pwd = model.Password };
+            Admin admin = new Admin() { Admin_id = model.Admin_id, Admin_username = model.Username, Admin_email = model.Email, Admin_type_id = model.Admin_type_id, Admin_pwd = model.Password,IsDeleted=false };
             
             int response = _adminLog.AdminInsert(admin);
 
@@ -64,7 +92,6 @@ namespace EasyCRM.API.Controllers
             {
                 return BadRequest("Not able to save the record in database");
             }
-
         }
 
         //[Route("LoginDemo")]

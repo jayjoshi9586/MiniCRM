@@ -58,7 +58,7 @@ namespace DataAccessCore.Entities
         [Required]
         public string Admin_username { get; set; }
 
-        public bool? column_name { get; set; }
+        public bool? IsDeleted { get; set; }
 
         public virtual AdminType AdminType { get; set; }
 

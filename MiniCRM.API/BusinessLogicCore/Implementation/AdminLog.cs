@@ -48,6 +48,43 @@ namespace BusinessLogicCore.Implementation
             }
         }
 
+        public int DeActivateUser(String username)
+        {
+            Admin admin = GetByUsername(username);
+            admin.IsDeleted = true;
+            int result = this.binding.Save();
+
+            if (result > 0)
+            {
+                result = 1;
+                return result;
+            }
+            else
+            {
+                result = 0;
+                return result;
+            }
+        }
+
+        public int ActivateUser(String username)
+        {
+            Admin admin = GetByUsername(username);
+            admin.IsDeleted = false;
+            int result = this.binding.Save();
+
+            if (result > 0)
+            {
+                result = 1;
+                return result;
+            }
+            else
+            {
+                result = 0;
+                return result;
+            }
+
+        }
+
         public Admin GetByEmail(string Email)
         {
             objEmp = binding.GetAdminRepository.GetByEmail(Email);

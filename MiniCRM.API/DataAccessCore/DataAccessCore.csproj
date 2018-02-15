@@ -119,7 +119,6 @@
     <Compile Include="Entities\AccountBindingModels.cs" />
     <Compile Include="Entities\Accounts_branch.cs" />
     <Compile Include="Entities\AccountViewModels.cs" />
-    <Compile Include="Entities\Account_Branches.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\AdminType.cs" />
     <Compile Include="Entities\Beacon.cs" />

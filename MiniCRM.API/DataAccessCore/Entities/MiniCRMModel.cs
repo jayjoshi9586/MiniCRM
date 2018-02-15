@@ -21,7 +21,6 @@ namespace DataAccessCore.Entities
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Right> Rights { get; set; }
         public virtual DbSet<Timing_Table> Timing_Table { get; set; }
-        public virtual DbSet<Account_Branches> Account_Branches { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -35,16 +34,6 @@ namespace DataAccessCore.Entities
                 .IsUnicode(false);
 
             modelBuilder.Entity<Account>()
-                .HasMany(e => e.Account_Branches)
-                .WithRequired(e => e.Account)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Account>()
-                .HasMany(e => e.Accounts_branch)
-                .WithRequired(e => e.Account)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Account>()
                 .HasMany(e => e.Admins)
                 .WithMany(e => e.Accounts)
                 .Map(m => m.ToTable("Account_Admin").MapLeftKey("Account_id").MapRightKey("Admin_id"));
@@ -53,6 +42,11 @@ namespace DataAccessCore.Entities
                 .HasMany(e => e.Beacons)
                 .WithMany(e => e.Accounts)
                 .Map(m => m.ToTable("Account_Beacon").MapLeftKey("Account_id").MapRightKey("Beacon_id"));
+
+            modelBuilder.Entity<Account>()
+                .HasMany(e => e.Accounts_branch)
+                .WithMany(e => e.Accounts)
+                .Map(m => m.ToTable("Account_Branches").MapLeftKey("Account_id").MapRightKey("Account_branch_id"));
 
             modelBuilder.Entity<Account>()
                 .HasMany(e => e.Categories)
