@@ -9,10 +9,11 @@ using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using DataAccessCore.Implementation;
+using DataAccessCore.Identity;
 
-namespace DataAccessCore.Identity
+namespace MiniCRM.API.Filters
 {
-    public class _JWTAuthenticationFilter : AuthorizationFilterAttribute
+    public class JWTAuthenticationFilter : AuthorizationFilterAttribute
     {
 
         public override void OnAuthorization(HttpActionContext filterContext)

@@ -24,6 +24,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using MiniCRM.API.Filters;
 //using MiniCRM.API.Models;
 //using MiniCRM.API.Models;
 //using MiniCRM.API.Providers;
@@ -32,7 +33,7 @@ using Owin;
 
 namespace MiniCRM.API.Controllers
 {
-    [Authorize]
+    [JWTAuthenticationFilter]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
@@ -133,7 +134,7 @@ namespace MiniCRM.API.Controllers
         //        ExternalLoginProviders = GetExternalLogins(returnUrl, generateState)
         //    };
         //}
-        [Authorize]
+        [JWTAuthenticationFilter]
         public IHttpActionResult Authorize()
         {
             return Ok("Authorized");
@@ -205,42 +206,7 @@ namespace MiniCRM.API.Controllers
 
         //}
 
-        //[Authorize]
-        //[Route("ForgotPassword")]
-        //public String ForgotPassword(ForgotPasswordBindingModel model)
-        //{
-        //    String Subject = "Mini-CRM Password Reset Token";
-
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return "Invalid Request";
-        //    }
-        //    var user = UserManager.FindByEmail(model.Email);
-        //    if (user == null)
-        //    {
-        //        return "Sorry! No record is linked to that Email.";
-        //    }
-        //    String Passwordtoken = UserManager.GeneratePasswordResetToken(user.Id);            
-
-        //    //Creating a SMTP client to send/receive emails
-        //    SmtpClient client = new SmtpClient("smtp.gmail.com");
-        //    client.Host = "smtp.gmail.com";
-        //    client.Port = 587;
-        //    client.EnableSsl = true;
-        //    client.UseDefaultCredentials = false;
-        //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //    client.Credentials = new System.Net.NetworkCredential("jay.joshi.det@gmail.com", "det@1234567@9");            
-
-        //    MailMessage message = new MailMessage();
-        //    message.From = new MailAddress("jay.joshi.det@gmail.com", "Jay Joshi");
-        //    message.To.Add(new MailAddress(model.Email, "Jay Joshi"));
-        //    message.Subject = Subject;
-        //    message.Body = Passwordtoken;
-        //    message.BodyEncoding = UTF8Encoding.UTF8;
-        //    message.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-        //    client.Send(message);                  
-        //    return "Mail has been sent with a code to reset your password.";
-        //}
+        
 
         //// POST api/Account/SetPassword
         //[Authorize]
@@ -428,33 +394,8 @@ namespace MiniCRM.API.Controllers
         //}
 
         // POST api/Account/Register
-        [AllowAnonymous]
-        [Route("Register")]
-        public IHttpActionResult Register(RegisterBindingModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            Admin admin = new Admin() {Admin_id=model.Admin_id, Admin_username = model.Username, Admin_email = model.Email, Admin_type_id = model.Admin_type_id, Admin_pwd = model.Password };
 
-            //{ Admin_username = model.u, Admin_email = model.Admin_email, Admin_type_id = model.Admin_type_id, Admin_pwd = model.Admin_pwd };
-            
-            int response = _adminLog.AdminInsert(admin);
-         
-
-            //int inserData = binding.Save();
-            if (response==1)
-            {
-                return Ok("Record added to the database");
-            }                
-            else
-            {
-                return BadRequest("Not able to save the record in database");
-            }
-                
-        }
-             private Binding binding = new Binding();
+        private Binding binding = new Binding();
         //Admin admin = new Admin();
         //{
         //    admin.Admin_aadhar_id = null;
@@ -473,52 +414,22 @@ namespace MiniCRM.API.Controllers
         //}
         //int response = _adminLog.AdminInsert();
         // IAppBuilder app1;
-        
+
         //var user = new ApplicationUser() { UserName = model.Username, Email = model.Email, Admin_type_id = model.Admin_type_id };
 
         //IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-        
-            //if (!result.Succeeded)
-            //{
-            //    return GetErrorResult(result);
-            //}
 
-            
-    
-            
-    
-
-        // POST api/Account/EditProfile
-        [Authorize]
-
-        //[Route("EditProfile")]
-        //public IHttpActionResult EditProfile(EditProfileBindingModel model)
+        //if (!result.Succeeded)
         //{
-
-        //    int result;
-        //    //var id=User.Identity.GetUserId();
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    ApplicationUser user;//= await UserManager.FindByNameAsync(model.username);
-        //     user = applicationDbContext.Users.AsNoTracking().Where(a => a.UserName == model.username).FirstOrDefault();
-
-        //    if (user == null)
-        //    {
-        //        return BadRequest("No such user. Try Again");
-        //    }
-
-        //    result = _adminLog.AdminUpdate(model, user);
-
-        //    if (result == 1)
-        //    {
-        //        return Ok("Changes Saved Successfully!");
-        //    }
-
-        //    return InternalServerError();
-
+        //    return GetErrorResult(result);
         //}
+
+
+
+
+
+
+
         //JSON Request type:
         //grant_type=password&username=jazzyy9586&password=Det@2018!
         //[AllowAnonymous]
@@ -526,7 +437,7 @@ namespace MiniCRM.API.Controllers
         //public  async Task Login(OAuthGrantResourceOwnerCredentialsContext model)
         //{
         //    ApplicationUser user = await UserManager.FindAsync(model.UserName, model.Password);
-            
+
         //    if (user == null)
         //    {
         //        model.SetError("invalid_grant", "The user name or password is incorrect.");
@@ -544,7 +455,7 @@ namespace MiniCRM.API.Controllers
         //    model.Validated(ticket);
         //    model.Request.Context.Authentication.SignIn(cookiesIdentity);
         //}
-        [AllowAnonymous]
+        [JWTAuthenticationFilter]
         [Route("CreateAccount")]
         public IHttpActionResult CreateAccount(Account model)
         {
@@ -565,7 +476,7 @@ namespace MiniCRM.API.Controllers
            // return Ok();
         }
 
-       [AllowAnonymous]
+        [JWTAuthenticationFilter]
         public Account Get(int id)
         {
             return _accountLog.AccountGet(id);

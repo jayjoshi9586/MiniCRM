@@ -27,6 +27,19 @@ namespace DataAccessCore.Entities
         public string Password { get; set; }
 
     }
+
+    public class CreateAccountBindingModel
+    {
+        public int Account_id { get; set; }
+
+        public string Account_name { get; set; }
+
+        [Column(TypeName = "image")]
+        public byte[] Account_brand_logo { get; set; }
+
+        public string Account_global_email { get; set; }
+    }
+
     public class ChangePasswordBindingModel
     {
         [Required]

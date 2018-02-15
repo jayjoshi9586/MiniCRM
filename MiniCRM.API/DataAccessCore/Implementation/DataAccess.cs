@@ -63,9 +63,14 @@ namespace DataAccessCore.Implementation
         public virtual Admin GetByUsername(string Username)
         {
             //var dbEntry = context.Admins.FirstOrDefault(acc => acc.Admin_username == Username);
-
             //return this.dbSet.Find(Username);
+            
             return context.Admins.FirstOrDefault(acc => acc.Admin_username == Username);
+        }
+
+        public virtual Admin GetByEmail(string email)
+        {
+            return context.Admins.FirstOrDefault(acc => acc.Admin_email == email);
         }
 
         public virtual int ValidateUser(Admin admin,LoginTestBindingModel credentials)

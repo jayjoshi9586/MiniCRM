@@ -9,3 +9,9 @@ E:\MiniCRM.API\MiniCRM.API\DataAccess\obj\Debug\DataAccess.csprojResolveAssembly
 E:\MiniCRM.API\MiniCRM.API\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
 E:\MiniCRM.API\MiniCRM.API\DataAccess\obj\Debug\DataAccess.dll
 E:\MiniCRM.API\MiniCRM.API\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\DataAccess\obj\Debug\DataAccess.pdb

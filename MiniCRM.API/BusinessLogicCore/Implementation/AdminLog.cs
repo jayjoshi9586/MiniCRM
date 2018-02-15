@@ -47,13 +47,17 @@ namespace BusinessLogicCore.Implementation
                 return validate;
             }
         }
+
+        public Admin GetByEmail(string Email)
+        {
+            objEmp = binding.GetAdminRepository.GetByEmail(Email);
+            return objEmp;
+        }
+
         public int AdminUpdate(EditProfileBindingModel model, Admin user)
         {
 
-            //objEmp = binding.GetAdminRepository.GetByID(emp.Admin_id);
-
-         
-
+            //objEmp = binding.GetAdminRepository.GetByID(emp.Admin_id);     
           
             if (user != null)
             {

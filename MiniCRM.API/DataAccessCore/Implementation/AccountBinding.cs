@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 using System.Data.Entity.Validation;
 using DataAccessCore.Entities;
 
-
-
-
-
-
-
 namespace DataAccessCore.Implementation
 {
     public class AccountBinding : IDisposable
