@@ -28,30 +28,16 @@ namespace BusinessLogicCore.Implementation
             objEmp = binding.GetBeaconRepository.GetByID(id);
             return objEmp;
         }
-        public Beacon GetByBeaconname(string Username)
+        public Beacon GetByBeaconname(string Beaconname)
         {
-            objEmp = binding.GetBeaconRepository.GetByName(Username);
+            objEmp = binding.GetBeaconRepository.GetByBeaconname(Beaconname);
             return objEmp;
         }
 
-        //public int ValidateUser(LoginTestBindingModel model)
-        //{
-        //    objEmp = GetByBeaconname(model.Username);
-        //    if (objEmp == null)
-        //    {
-        //        return 0;
-        //    }
-        //    else
-        //    {
-        //        int validate = binding.GetAdminRepository.ValidateUser(objEmp, model);
-        //        return validate;
-        //    }
-        //}
-
-        public int DeActivateBeacon(String username)
+        public int DeActivateBeacon(String beaconname)
         {
-            Beacon admin = GetByBeaconname(username);
-            admin.IsDeleted = true;
+            Beacon beacon = GetByBeaconname(beaconname);
+            beacon.IsDeleted = true;
             int result = this.binding.Save();
 
             if (result > 0)
@@ -66,10 +52,10 @@ namespace BusinessLogicCore.Implementation
             }
         }
 
-        public int ActivateBeacon(String username)
+        public int ActivateBeacon(String beaconname)
         {
-            Beacon admin = GetByBeaconname(username);
-            admin.IsDeleted = false;
+            Beacon beacon = GetByBeaconname(beaconname);
+            beacon.IsDeleted = false;
             int result = this.binding.Save();
 
             if (result > 0)
@@ -85,56 +71,25 @@ namespace BusinessLogicCore.Implementation
 
         }
 
-        //public Admin GetByEmail(string Email)
-        //{
-        //    objEmp = binding.GetAdminRepository.GetByEmail(Email);
-        //    return objEmp;
-        //}
-
-        //public int BeaconUpdate(EditProfileBindingModel model, Beacon user)
-        //{
-
-        //    //objEmp = binding.GetAdminRepository.GetByID(emp.Admin_id);     
-
-        //    if (user != null)
-        //    {
-        //        user.Admin_firstname = model.Admin_firstname;
-        //        user.Admin_lastname = model.Admin_lastname;
-        //        user.Admin_gender = model.Admin_gender;
-        //        user.Admin_dob = model.Admin_dob;
-        //        user.Admin_aadhar_id = model.Admin_aadhar_id;
-        //        user.Admin_pan_card = model.Admin_pan_card;
-        //        user.Admin_gst_id = model.Admin_gst_id;
-        //    }
-        //    this.binding.GetAdminRepository.Attach(user);
-        //    int result = this.binding.Save();
-
-        //    if (result > 0)
-        //    {
-        //        result = 1;
-        //        return result;
-        //    }
-        //    else
-        //    {
-        //        result = 0;
-        //        return result;
-        //    }
-        //}
-
-        public int AdminDelete(int id)
+        public int BeaconNameUpdate(EditBeaconBindingModel model)
         {
-            var objEmp = this.binding.GetAdminRepository.GetByID(id);
-            this.binding.GetAdminRepository.Delete(objEmp);
-            int deleteData = this.binding.Save();
-            if (deleteData > 0)
+            Beacon beacon = BeaconGet(model.Beacon_id);
+            if(beacon!=null)
             {
-                deleteData = 1;
-                return deleteData;
+                beacon.Beacon_title = model.Beacon_title;
+            }
+            this.binding.GetBeaconRepository.Attach(beacon);
+            int result = this.binding.Save();
+
+            if (result > 0)
+            {
+                result = 1;
+                return result;
             }
             else
             {
-                deleteData = 0;
-                return deleteData;
+                result = 0;
+                return result;
             }
         }
 
@@ -153,24 +108,6 @@ namespace BusinessLogicCore.Implementation
                 inserData = 0;
                 return inserData;
             }
-
-            //    public virtual Admin GetUser(string userName, string password)
-            //{
-            //    MiniCRMModel db = new MiniCRMModel();
-            //    Admin admin = db.Admins.Find(userName);
-            //    if (admin.Admin_pwd == password)
-            //    {
-            //        return admin;
-            //    }
-            //    // IQueryable<Admin> admin1 = db.Admins.Where(x=>x.Admin_username == userName);
-            //    //Admin admin;
-            //    return null;
-            //}
-        }
-
-        public int AdminInsert()
-        {
-            throw new NotImplementedException();
         }
     }
 }

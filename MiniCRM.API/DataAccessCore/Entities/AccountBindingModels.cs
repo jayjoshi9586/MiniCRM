@@ -71,6 +71,17 @@ namespace DataAccessCore.Entities
         public string Account_global_email { get; set; }
     }
 
+    public class EditBeaconBindingModel
+    {
+        [Required]
+        [Display(Name = "BeaconID")]
+        public int Beacon_id { get; set; }
+
+        [Required]
+        [Display(Name = "BeaconTitle")]
+        public string Beacon_title { get; set; }
+    }
+
     public class AddBeaconBindingModel
     {
         [Required]

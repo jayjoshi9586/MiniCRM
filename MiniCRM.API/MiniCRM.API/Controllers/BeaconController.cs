@@ -30,15 +30,16 @@ namespace MiniCRM.API.Controllers
         }
 
         [JWTAuthenticationFilter]
-        [Route("GetByUsername")]
-        public Beacon GetbyBeaconName(UsernameSpecificBindingModel model)
+        [Route("GetByName")]
+        
+        public Beacon GetbyBeaconName(String Beaconname)
         {
-            return _beaconLog.GetByBeaconname(model.Username);
+            return _beaconLog.GetByBeaconname(Beaconname);
         }
 
         [JWTAuthenticationFilter]
-        [Route("ActivateUser")]
-        public IHttpActionResult ActivateUser(UsernameSpecificBindingModel model)
+        [Route("ActivateBeacon")]
+        public IHttpActionResult ActivateBeacon(UsernameSpecificBindingModel model)
         {
             int response = _beaconLog.ActivateBeacon(model.Username);
             if (response == 1)
@@ -51,7 +52,7 @@ namespace MiniCRM.API.Controllers
 
         [JWTAuthenticationFilter]
         [Route("DeActivateBeacon")]
-        public IHttpActionResult DeActivateUser(UsernameSpecificBindingModel model)
+        public IHttpActionResult DeActivateBeacon(UsernameSpecificBindingModel model)
         {
             int response = _beaconLog.DeActivateBeacon(model.Username);
             if (response == 1)
@@ -102,7 +103,27 @@ namespace MiniCRM.API.Controllers
                 return BadRequest("Not able to save the record in database");
             }
         }
+        [JWTAuthenticationFilter]
+        [Route("EditBeacon")]
+        public IHttpActionResult EditBeaconName (EditBeaconBindingModel model)
+        {
+            Beacon beacon = Get(model.Beacon_id);
 
+            if(beacon==null)
+            {
+                return BadRequest("Invalid Beacon! Please enter correct BeaconID");
+            }
+
+            int result = _beaconLog.BeaconNameUpdate(model);
+
+            if (result == 1)
+            {
+                return Ok("Changes Saved Successfully!");
+            }
+
+            return InternalServerError();
+
+        }
         // PUT: api/Beacon/5
         public void Put(int id, [FromBody]string value)
         {

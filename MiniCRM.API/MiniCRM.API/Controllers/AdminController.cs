@@ -134,23 +134,7 @@ namespace EasyCRM.API.Controllers
             }
         }
 
-        //// PUT: api/Admin/5
-        //public IHttpActionResult Put(int id, [FromBody]Admin admin)
-        //{
-        //    int response = adminobj.AdminUpdate(admin);
-
-        //    if (response == 1)
-        //    {
-        //        return Ok();
-        //    }
-        //    else
-        //    {
-        //        return NotFound();
-        //    }
-        //}
-
-        // POST api/Account/EditProfile
-       
+        // POST api/Account/EditProfile       
         [JWTAuthenticationFilter]
         [Route("EditProfile")]
         public IHttpActionResult EditProfile(EditProfileBindingModel model)
