@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BusinessLogic.Interface;
 using DataAccessCore.Entities;
 using DataAccessCore.Implementation;
+using DataAccessCore.Models;
 
 namespace BusinessLogicCore.Implementation
 {
@@ -14,13 +15,21 @@ namespace BusinessLogicCore.Implementation
     {
         private Binding binding = new Binding();
         private List<Admin> lstEmp = new List<Admin>();
+        private List<AdminGetModel> lstEmps;
         private Admin objEmp = new Admin();
+        private AdminGetModel objEmps = new AdminGetModel();
 
-        public IEnumerable<Admin> AdminGet()
+        public IEnumerable<AdminGetModel> AdminGet()
         {
             lstEmp = binding.GetAdminRepository.Get().ToList();
+            lstEmps = new List<AdminGetModel>();
+            int i = 0;
+            for(i=0;i<lstEmp.Count;i++)
+            {
+                lstEmps.Add(new AdminGetModel(lstEmp[i]));
+            }
 
-            return lstEmp;
+            return lstEmps;
         }
 
         public Admin AdminGet(int id)

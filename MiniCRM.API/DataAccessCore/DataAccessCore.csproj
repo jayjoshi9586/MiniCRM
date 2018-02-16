@@ -116,7 +116,6 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\Account.cs" />
-    <Compile Include="Entities\RequestModels.cs" />
     <Compile Include="Entities\Accounts_branch.cs" />
     <Compile Include="Entities\AccountViewModels.cs" />
     <Compile Include="Entities\Admin.cs" />
@@ -130,23 +129,18 @@
     <Compile Include="Entities\Right.cs" />
     <Compile Include="Entities\Timing_Table.cs" />
     <Compile Include="Identity\CustomJWTFormat.cs" />
-    <Compile Include="Identity\CustomOAuthProvider.cs" />
-    <Compile Include="Identity\JWTAuthenticationFilter.cs" />
     <Compile Include="Identity\JWTAuthenticationIdentity.cs" />
     <Compile Include="Identity\ResponseDTO.cs" />
-    <Compile Include="Implementation\AccountBinding.cs" />
     <Compile Include="Identity\AuthenticationModule.cs" />
-    <Compile Include="Implementation\MiniCRMUserManager.cs" />
     <Compile Include="Implementation\Binding.cs" />
     <Compile Include="Implementation\DataAccess.cs" />
-    <Compile Include="Implementation\Initializer.cs" />
-    <Compile Include="Implementation\JWTAuthenticationFilter.cs" />
-    <Compile Include="Implementation\MiniCRMUserStore.cs" />
     <Compile Include="Migrations\201802130937532_IsDeleted.cs" />
     <Compile Include="Migrations\201802130937532_IsDeleted.Designer.cs">
       <DependentUpon>201802130937532_IsDeleted.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\RequestModels.cs" />
+    <Compile Include="Models\ResponseModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

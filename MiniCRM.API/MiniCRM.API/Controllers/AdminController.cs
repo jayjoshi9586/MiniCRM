@@ -16,6 +16,7 @@ using DataAccessCore.Identity;
 using MiniCRM.API.Filters;
 using System.Text;
 using System.Security.Cryptography;
+using DataAccessCore.Models;
 
 namespace EasyCRM.API.Controllers
 {
@@ -28,8 +29,9 @@ namespace EasyCRM.API.Controllers
         AdminLog adminobj = new AdminLog();
         // GET: api/Admin
         [JWTAuthenticationFilter]
-        public IEnumerable<Admin> Get()
+        public IEnumerable<AdminGetModel> Get()
         {
+            //IEnumerable<Admin> admin = adminobj.AdminGet();
             return adminobj.AdminGet();
         }
 

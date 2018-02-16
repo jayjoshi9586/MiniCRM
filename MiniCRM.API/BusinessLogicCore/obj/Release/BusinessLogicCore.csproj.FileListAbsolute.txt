@@ -3,7 +3,6 @@ C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Releas
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\BusinessLogicCore.pdb
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\BusinessLogic.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\DataAccessCore.dll
-C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\EntityFramework.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Microsoft.AspNet.Identity.Core.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\DataAccess.dll

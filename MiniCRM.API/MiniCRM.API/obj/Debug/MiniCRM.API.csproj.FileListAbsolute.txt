@@ -416,4 +416,3 @@ C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\MiniCRM.API\obj\Debug\MiniCR
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\MiniCRM.API\obj\Debug\MiniCRM.API.pdb
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\MiniCRM.API\bin\Swashbuckle.Core.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\MiniCRM.API\bin\WebActivatorEx.dll
-C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\MiniCRM.API\bin\MiniCRM.API.xml
