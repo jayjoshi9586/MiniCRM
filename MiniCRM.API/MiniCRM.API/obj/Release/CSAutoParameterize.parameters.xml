@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="MiniCRM-Web.config Connection String" description="MiniCRM Connection String used in web.config by the application to access the database." defaultValue="data source=DESKTOP-1CP7O6L\SQLEXPRESS;initial catalog=MiniCRM8;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jayjo\\Documents\\GitHub\\MiniCRM\\MiniCRM\.API\\MiniCRM\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MiniCRM']/@connectionString" />
+  </parameter>
+</parameters>
