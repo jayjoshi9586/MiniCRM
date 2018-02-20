@@ -18,6 +18,7 @@ using System.Web.Http.ModelBinding;
 using BusinessLogicCore.Implementation;
 using DataAccessCore.Entities;
 using DataAccessCore.Implementation;
+using DataAccessCore.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -54,7 +55,7 @@ namespace MiniCRM.API.Controllers
         //    UserManager = userManager;
         //    AccessTokenFormat = accessTokenFormat;
         //}
-        public IEnumerable<Account> Get()
+        public IEnumerable<AccountGetModel> Get()
         {
             return _accountLog.AccountGet();
         }

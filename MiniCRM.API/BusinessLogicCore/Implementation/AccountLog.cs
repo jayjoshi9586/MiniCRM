@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BusinessLogic.Interface;
 using DataAccessCore.Entities;
 using DataAccessCore.Implementation;
+using DataAccessCore.Models;
 
 namespace BusinessLogicCore.Implementation
 {
@@ -13,13 +14,20 @@ namespace BusinessLogicCore.Implementation
     {
         private Binding binding = new Binding();
         private List<Account> lstEmp = new List<Account>();
+        private List<AccountGetModel> lstEmps = new List<AccountGetModel>();
         private Account objEmp = new Account();
 
-        public IEnumerable<Account> AccountGet()
+        public IEnumerable<AccountGetModel> AccountGet()
         {
             lstEmp = binding.GetAccountRepository.Get().ToList();
+            lstEmps = new List<AccountGetModel>();
 
-            return lstEmp;
+            for (int i = 0; i < lstEmp.Count; i++)
+            {
+                lstEmps.Add(new AccountGetModel(lstEmp[i]));
+            }            
+
+            return lstEmps;
         }
 
         public Account AccountGet(int id)

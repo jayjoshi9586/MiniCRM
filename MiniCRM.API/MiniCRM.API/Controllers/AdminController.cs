@@ -20,12 +20,13 @@ using DataAccessCore.Models;
 
 namespace EasyCRM.API.Controllers
 {
-    [JWTAuthenticationFilter]
+    //[JWTAuthenticationFilter]
     [RoutePrefix("api/Admin")]
     public class AdminController : ApiController
     {
         private AdminLog _adminLog = new AdminLog();
         private MiniCRMModel applicationDbContext = new MiniCRMModel();
+        Admin admin = new Admin();
         AdminLog adminobj = new AdminLog();
         // GET: api/Admin
         [JWTAuthenticationFilter]
@@ -37,15 +38,15 @@ namespace EasyCRM.API.Controllers
 
         // GET: api/Admin/5
         [JWTAuthenticationFilter]
-        public Admin Get(int id)
+        public AdminGetModel Get(int id)
         {
             return adminobj.AdminGet(id);
         }
-        [JWTAuthenticationFilter]
-        [Route("GetByUsername")]
-        public Admin GetbyUserName(UsernameSpecificBindingModel model)
+        //[JWTAuthenticationFilter]
+        //[Route("GetByUsername")]
+        public Admin GetbyUserName(string model)
         {
-            return _adminLog.GetByUsername(model.Username);
+            return _adminLog.GetByUsername(model);
         }
 
         [JWTAuthenticationFilter]
@@ -59,6 +60,18 @@ namespace EasyCRM.API.Controllers
             }
 
             return BadRequest("Could not activate the user. Please try again.");
+        }
+
+        [JWTAuthenticationFilter]
+        public IHttpActionResult CreateuserRole(AdminType model)
+        {
+            int response = _adminLog.CreateRole(model);
+            if(response==1)
+            {
+                return Ok("Role added!");
+            }
+            return BadRequest("Sorry, could not add the role.");
+            
         }
 
         [JWTAuthenticationFilter]

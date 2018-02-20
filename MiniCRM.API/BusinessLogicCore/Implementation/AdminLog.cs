@@ -23,8 +23,8 @@ namespace BusinessLogicCore.Implementation
         {
             lstEmp = binding.GetAdminRepository.Get().ToList();
             lstEmps = new List<AdminGetModel>();
-            int i = 0;
-            for(i=0;i<lstEmp.Count;i++)
+            
+            for(int i=0;i<lstEmp.Count;i++)
             {
                 lstEmps.Add(new AdminGetModel(lstEmp[i]));
             }
@@ -32,10 +32,18 @@ namespace BusinessLogicCore.Implementation
             return lstEmps;
         }
 
-        public Admin AdminGet(int id)
+        public AdminGetModel AdminGet(int id)
         {
             objEmp = binding.GetAdminRepository.GetByID(id);
-            return objEmp;
+            //lstEmps = new List<AdminGetModel>();
+            objEmps=(new AdminGetModel(objEmp));
+            //for (int i = 0; i < lstEmp.Count; i++)
+            //{
+            //    lstEmps.Add(new AdminGetModel(lstEmp[i]));
+            //}
+            //objEmps = lstEmps[id];
+
+            return objEmps;
         }
         public Admin GetByUsername(string Username)
         {
@@ -162,20 +170,24 @@ namespace BusinessLogicCore.Implementation
                 inserData = 0;
                 return inserData;
             }
+        }
 
-        //    public virtual Admin GetUser(string userName, string password)
-        //{
-        //    MiniCRMModel db = new MiniCRMModel();
-        //    Admin admin = db.Admins.Find(userName);
-        //    if (admin.Admin_pwd == password)
-        //    {
-        //        return admin;
-        //    }
-        //    // IQueryable<Admin> admin1 = db.Admins.Where(x=>x.Admin_username == userName);
-        //    //Admin admin;
-        //    return null;
-        //}
-    }
+        public int CreateRole(AdminType role)
+        {
+            this.binding.GetAdminTypeRepository.Insert(role);
+            int inserData = this.binding.Save();
+
+            if (inserData > 0)
+            {
+                inserData = 1;
+                return inserData;
+            }
+            else
+            {
+                inserData = 0;
+                return inserData;
+            }
+        }
 
         public int AdminInsert()
         {

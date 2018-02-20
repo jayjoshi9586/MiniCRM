@@ -35,6 +35,17 @@ namespace DataAccessCore.Entities
         public string Username { get; set; }
     }
 
+    public class CreateUserRoleBindingModel
+    {
+        [Required]
+        [Display(Name ="Admin_type_id")]
+        public int Admin_type_id { get; set; }
+
+        [Required]
+        [Display(Name = "Admin_type_name")]
+        public string Admin_type_name { get; set; }
+    }
+
     public class CreateAccountBindingModel
     {
         [Required]

@@ -36,14 +36,9 @@ namespace DataAccessCore.Models
             this.Admin_username = a.Admin_username;
             this.IsDeleted = a.IsDeleted;
         }
-        [Display(Name = "Email")]
-        public string Email { get; set; }
 
         [Display(Name = "Admin_id")]
         public int Admin_id { get; set; }
-
-        [Display(Name = "UserName")]
-        public string Username { get; set; }
 
         [Display(Name = "Admin_type_ID")]
         public int Admin_type_id { get; set; }
@@ -84,5 +79,35 @@ namespace DataAccessCore.Models
         [Display(Name = "IsDeleted")]
         public bool? IsDeleted { get; set; }
 
+    }
+
+    public class AccountGetModel
+    {
+        public AccountGetModel() { }
+
+        public AccountGetModel(Account account)
+        {
+            this.Account_brand_logo = account.Account_brand_logo;
+            this.Account_global_email = account.Account_global_email;
+            this.Account_id = account.Account_id;
+            this.Account_name = account.Account_name;
+            this.IsDeleted = account.IsDeleted;
+        }
+
+        [Display(Name = "Account_id")]
+        public int Account_id { get; set; }
+
+        [Display(Name = "Account_name")]
+        public string Account_name { get; set; }
+
+        [Column(TypeName = "image")]
+        [Display(Name = "Account_brand_logo")]
+        public byte[] Account_brand_logo { get; set; }
+
+        [Display(Name = "Account_global_email")]
+        public string Account_global_email { get; set; }
+
+        [Display(Name = "IsDeleted")]
+        public bool IsDeleted { get; set; }
     }
 }
