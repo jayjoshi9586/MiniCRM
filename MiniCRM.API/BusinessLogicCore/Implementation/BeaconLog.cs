@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BusinessLogic.Interface;
 using DataAccessCore.Entities;
 using DataAccessCore.Implementation;
+using DataAccessCore.Models;
 
 namespace BusinessLogicCore.Implementation
 {
@@ -14,19 +15,21 @@ namespace BusinessLogicCore.Implementation
     {
         private Binding binding = new Binding();
         private List<Beacon> lstEmp = new List<Beacon>();
+        private List<BeaconGetModel> lstEmps = new List<BeaconGetModel>();
         private Beacon objEmp = new Beacon();
+        private BeaconGetModel objEmps = new BeaconGetModel();
 
-        public IEnumerable<Beacon> BeaconGet()
+        public IEnumerable<BeaconGetModel> BeaconGet()
         {
             lstEmp = binding.GetBeaconRepository.Get().ToList();
 
-            return lstEmp;
+            return lstEmps;
         }
 
-        public Beacon BeaconGet(int id)
+        public BeaconGetModel BeaconGet(int id)
         {
             objEmp = binding.GetBeaconRepository.GetByID(id);
-            return objEmp;
+            return objEmps;
         }
         public Beacon GetByBeaconname(string Beaconname)
         {
@@ -73,7 +76,8 @@ namespace BusinessLogicCore.Implementation
 
         public int BeaconNameUpdate(EditBeaconBindingModel model)
         {
-            Beacon beacon = BeaconGet(model.Beacon_id);
+            BeaconGetModel beacon1 = BeaconGet(model.Beacon_id);
+            Beacon beacon = new Beacon(beacon1);
             if(beacon!=null)
             {
                 beacon.Beacon_title = model.Beacon_title;

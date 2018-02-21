@@ -15,6 +15,8 @@ using System.Data.Entity;
 using DataAccessCore.Identity;
 using MiniCRM.API.Filters;
 using System.Text;
+using DataAccessCore.Models;
+
 namespace MiniCRM.API.Controllers
 {
     [JWTAuthenticationFilter]
@@ -24,7 +26,7 @@ namespace MiniCRM.API.Controllers
         private BeaconLog _beaconLog = new BeaconLog();
         private MiniCRMModel applicationDbContext = new MiniCRMModel();
         // GET: api/Beacon
-        public IEnumerable<Beacon> Get()
+        public IEnumerable<BeaconGetModel> Get()
         {
             return _beaconLog.BeaconGet();
         }
@@ -63,7 +65,7 @@ namespace MiniCRM.API.Controllers
             return BadRequest("Could not activate the user. Please try again.");
         }
         // GET: api/Beacon/5
-        public Beacon Get(int id)
+        public BeaconGetModel Get(int id)
         {
             return _beaconLog.BeaconGet(id);
         }
@@ -107,7 +109,7 @@ namespace MiniCRM.API.Controllers
         [Route("EditBeacon")]
         public IHttpActionResult EditBeaconName (EditBeaconBindingModel model)
         {
-            Beacon beacon = Get(model.Beacon_id);
+            Beacon beacon = new Beacon(Get(model.Beacon_id));
 
             if(beacon==null)
             {

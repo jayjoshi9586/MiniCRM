@@ -42,13 +42,13 @@ namespace EasyCRM.API.Controllers
         {
             return adminobj.AdminGet(id);
         }
-        //[JWTAuthenticationFilter]
+        [JWTAuthenticationFilter]
         //[Route("GetByUsername")]
         public Admin GetbyUserName(string model)
         {
             return _adminLog.GetByUsername(model);
         }
-
+        //[Authorize]
         [JWTAuthenticationFilter]
         [Route("ActivateUser")]
         public IHttpActionResult ActivateUser(UsernameSpecificBindingModel model)
@@ -113,24 +113,31 @@ namespace EasyCRM.API.Controllers
         //[Route("LoginDemo")]
         [HttpPost]
         [Route("LoginDemo")]
-        public HttpResponseMessage LoginDemo(LoginTestBindingModel model)
+        public LoginResponseModel LoginDemo(LoginTestBindingModel model)
         {
             //Admin admin = new Admin() {Admin_username=model.Username,Admin_pwd=model.Password };
             Admin admin = _adminLog.GetByUsername(model.Username);
             int validate = _adminLog.ValidateUser(model);
             ////MockAuthenticationService demoService = new MockAuthenticationService();
             ////Admin user = demoService.GetUser(model.Username, model.Password);
+            LoginResponseModel loginresponse = new LoginResponseModel();
             if (validate == 0)
             {
+                loginresponse.accesstoken = null;
+                loginresponse.Admin_id = -1;
+                loginresponse.success = false;
                 //return N("Username or Password is Incorrect");
-                return Request.CreateResponse(HttpStatusCode.Unauthorized, "Invalid Username or Password", Configuration.Formatters.JsonFormatter);
+                return loginresponse;//Request.CreateResponse(HttpStatusCode.Unauthorized, "Invalid Username or Password", Configuration.Formatters.JsonFormatter);
             }
             else
             {
                 AuthenticationModule authentication = new AuthenticationModule();
                 string token = authentication.GenerateTokenForUser(admin.Admin_username, admin.Admin_id);
-            //string token = authentication.GenerateTokenForUser(model.sername, admin.Admin_id);
-            return Request.CreateResponse(HttpStatusCode.OK, token, Configuration.Formatters.JsonFormatter);
+                //string token = authentication.GenerateTokenForUser(model.sername, admin.Admin_id);
+                loginresponse.accesstoken = token;
+                loginresponse.Admin_id = admin.Admin_id;
+                loginresponse.success = true;
+                return loginresponse; //Request.CreateResponse(HttpStatusCode.OK, token, Configuration.Formatters.JsonFormatter);
             }
 
         }

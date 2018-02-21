@@ -110,4 +110,62 @@ namespace DataAccessCore.Models
         [Display(Name = "IsDeleted")]
         public bool IsDeleted { get; set; }
     }
+
+    public class BeaconGetModel
+    {
+        public BeaconGetModel() { }
+
+        public BeaconGetModel(Beacon beacon)
+        {
+            this.Beacon_id = beacon.Beacon_id;
+            this.Beacon_major = beacon.Beacon_major;
+            this.Beacon_message = beacon.Beacon_message;
+            this.Beacon_minor = beacon.Beacon_minor;
+            this.Beacon_rssi = beacon.Beacon_rssi;
+            this.Beacon_title = beacon.Beacon_title;
+            this.Beacon_trigger_interval = beacon.Beacon_trigger_interval;
+            this.Beacon_trigger_proximity = beacon.Beacon_trigger_proximity;
+            this.Beacon_uuid = beacon.Beacon_uuid;
+            this.IsDeleted = beacon.IsDeleted;
+        }
+
+        [Display(Name = "Beacon_id")]
+        public int Beacon_id { get; set; }
+
+        [Display(Name = "Beacon_title")]
+        public string Beacon_title { get; set; }
+
+        [Display(Name = "Beacon_uuid")]
+        public string Beacon_uuid { get; set; }
+
+        [Display(Name = "Beacon_major")]
+        public int Beacon_major { get; set; }
+
+        [Display(Name = "Beacon_minor")]
+        public int Beacon_minor { get; set; }
+
+        [Display(Name = "Beacon_rssi")]
+        public int Beacon_rssi { get; set; }
+
+        [Display(Name = "Beacon_trigger_interval")]
+        public TimeSpan? Beacon_trigger_interval { get; set; }
+
+        [Display(Name = "Beacon_trigger_proximity")]
+        public string Beacon_trigger_proximity { get; set; }
+
+        [Display(Name = "Beacon_message")]
+        public string Beacon_message { get; set; }
+
+        [Display(Name = "IsDeleted")]
+        public bool IsDeleted { get; set; }
+    }
+
+    public class LoginResponseModel
+    {
+        public string accesstoken { get; set; }
+
+        public int Admin_id { get; set; }
+
+        public bool success { get; set; }
+    }
 }

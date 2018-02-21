@@ -1,5 +1,6 @@
 namespace DataAccessCore.Entities
 {
+    using DataAccessCore.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,20 @@ namespace DataAccessCore.Entities
         public Beacon()
         {
             Accounts = new HashSet<Account>();
+        }
+
+        public Beacon(BeaconGetModel beacon)
+        {
+            this.Beacon_id = beacon.Beacon_id;
+            this.Beacon_major = beacon.Beacon_major;
+            this.Beacon_message = beacon.Beacon_message;
+            this.Beacon_minor = beacon.Beacon_minor;
+            this.Beacon_rssi = beacon.Beacon_rssi;
+            this.Beacon_title = beacon.Beacon_title;
+            this.Beacon_trigger_interval = beacon.Beacon_trigger_interval;
+            this.Beacon_trigger_proximity = beacon.Beacon_trigger_proximity;
+            this.Beacon_uuid = beacon.Beacon_uuid;
+            this.IsDeleted = beacon.IsDeleted;
         }
 
         [Key]
@@ -46,4 +61,7 @@ namespace DataAccessCore.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
     }
-}
+
+     
+    }
+

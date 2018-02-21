@@ -20,7 +20,7 @@ public class AddAuthorizationHeaderParameterOperationFilter : IOperationFilter
                     name = "Authorization",
                     @in = "header",
                     description = "access token",
-                    required = false,
+                    required = true,
                     type = "string"
                 });
             }

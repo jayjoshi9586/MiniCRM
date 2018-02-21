@@ -8,12 +8,9 @@ C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Releas
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\DataAccess.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Microsoft.Owin.Security.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Thinktecture.IdentityModel.Core.dll
-C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\System.Web.Http.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Microsoft.Owin.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Owin.dll
-C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\System.Net.Http.Formatting.dll
-C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Newtonsoft.Json.dll
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\BusinessLogic.pdb
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\BusinessLogic.dll.config
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\DataAccessCore.pdb
@@ -24,11 +21,9 @@ C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Releas
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\DataAccess.pdb
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Microsoft.Owin.Security.xml
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Thinktecture.IdentityModel.Core.pdb
-C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\System.Web.Http.xml
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\System.IdentityModel.Tokens.Jwt.pdb
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\Microsoft.Owin.xml
-C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\bin\Release\System.Net.Http.Formatting.xml
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\obj\Release\BusinessLogicCore.csprojResolveAssemblyReference.cache
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\obj\Release\BusinessLogicCore.csproj.CoreCompileInputs.cache
 C:\Users\jayjo\Documents\GitHub\MiniCRM\MiniCRM.API\BusinessLogicCore\obj\Release\BusinessLogicCore.dll

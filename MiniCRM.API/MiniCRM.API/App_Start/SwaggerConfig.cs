@@ -62,21 +62,21 @@ namespace MiniCRM.API
                         //    .Description("Basic HTTP Authentication");
                         ////
                         //// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
-                        c.ApiKey("apiKey")
-                            .Description("API Key Authentication")
-                            .Name("apiKey")
-                            .In("header");
-                        //
-                        c.OAuth2("oauth2")
-                            .Description("OAuth2 Implicit Grant")
-                            .Flow("implicit")
-                            .AuthorizationUrl("http://petstore.swagger.wordnik.com/api/oauth/dialog")
-                            .TokenUrl("https://tempuri.org/token")
-                            .Scopes(scopes =>
-                            {
-                                scopes.Add("read", "Read access to protected resources");
-                                scopes.Add("write", "Write access to protected resources");
-                            });
+                        //c.ApiKey("apiKey")
+                        //    .Description("API Key Authentication")
+                        //    .Name("apiKey")
+                        //    .In("header");
+                        ////
+                        //c.OAuth2("oauth2")
+                        //    .Description("OAuth2 Implicit Grant")
+                        //    .Flow("implicit")
+                        //    .AuthorizationUrl("http://minicrmapi.azurewebsites.net/api/Admin/LoginDemo")
+                        //    .TokenUrl("http://minicrmapi.azurewebsites.net/token")
+                        //    .Scopes(scopes =>
+                        //    {
+                        //        scopes.Add("read", "Read access to protected resources");
+                        //        scopes.Add("write", "Write access to protected resources");
+                        //    });
 
                         // Set this flag to omit descriptions for any actions decorated with the Obsolete attribute
                         //c.IgnoreObsoleteActions();
@@ -179,7 +179,7 @@ namespace MiniCRM.API
                     })
                 .EnableSwaggerUi(c =>
                     {
-                        //c.InjectJavaScript(thisAssembly,"MyApplication.CustomSwagger.js");
+                        c.InjectJavaScript(thisAssembly, "MyApplication.CustomSwagger.js");
                         // Use the "DocumentTitle" option to change the Document title.
                         // Very helpful when you have multiple Swagger pages open, to tell them apart.
                         //
