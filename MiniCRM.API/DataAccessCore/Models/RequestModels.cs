@@ -93,6 +93,17 @@ namespace DataAccessCore.Entities
         public string Beacon_title { get; set; }
     }
 
+    public class CategoryModel
+    {
+        [Required]
+        [Display(Name = "CategoryID")]
+        public int Category_id { get; set; }
+
+        [Required]
+        [Display(Name = "CategoryName")]
+        public string Category_name { get; set; }
+    }
+
     public class AddBeaconBindingModel
     {
         [Required]
@@ -131,6 +142,9 @@ namespace DataAccessCore.Entities
         [Display(Name = "BeaconMessage")]
         [StringLength(50)]
         public string Beacon_message { get; set; }
+
+        [Display(Name = "IsDeleted")]
+        public string IsDeleted { get; set; }
     }
 
     public class CreateAccountBranchBindingModel

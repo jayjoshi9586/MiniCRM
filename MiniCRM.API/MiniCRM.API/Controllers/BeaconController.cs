@@ -73,25 +73,25 @@ namespace MiniCRM.API.Controllers
         // POST: api/Beacon
         [JWTAuthenticationFilter]
         [Route("AddBeacon")]
-        public IHttpActionResult AddBeacon(AddBeaconBindingModel model)
+        public IHttpActionResult AddBeacon(BeaconGetModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            Beacon beacon = new Beacon()
-            {
-                Beacon_id =model.Beacon_id,
-                Beacon_major = model.Beacon_major,
-                Beacon_minor =model.Beacon_minor,
-                Beacon_message =model.Beacon_message,
-                Beacon_rssi =model.Beacon_rssi,
-                Beacon_title =model.Beacon_title,
-                Beacon_trigger_interval =model.Beacon_trigger_interval,
-                Beacon_trigger_proximity =model.Beacon_trigger_proximity,
-                Beacon_uuid =model.Beacon_uuid,
-                IsDeleted = false
-            };
+            Beacon beacon = new Beacon(model);
+            //{
+            //    Beacon_id =model.Beacon_id,
+            //    Beacon_major = model.Beacon_major,
+            //    Beacon_minor =model.Beacon_minor,
+            //    Beacon_message =model.Beacon_message,
+            //    Beacon_rssi =model.Beacon_rssi,
+            //    Beacon_title =model.Beacon_title,
+            //    Beacon_trigger_interval =model.Beacon_trigger_interval,
+            //    Beacon_trigger_proximity =model.Beacon_trigger_proximity,
+            //    Beacon_uuid =model.Beacon_uuid,
+            //    IsDeleted = false
+            //};
 
             int response = _beaconLog.BeaconInsert(beacon);
 

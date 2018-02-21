@@ -1,5 +1,6 @@
 namespace DataAccessCore.Entities
 {
+    using DataAccessCore.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -12,6 +13,12 @@ namespace DataAccessCore.Entities
         public Category()
         {
             Accounts = new HashSet<Account>();
+        }
+
+        public Category(CategoryResponseModel category)
+        {
+            this.Category_id = category.Category_id;
+            this.Category_name = category.Category_name;
         }
 
         [Key]

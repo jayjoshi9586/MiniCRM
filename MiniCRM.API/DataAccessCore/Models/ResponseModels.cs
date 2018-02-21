@@ -168,4 +168,20 @@ namespace DataAccessCore.Models
 
         public bool success { get; set; }
     }
+
+    public class CategoryResponseModel
+    {
+        public CategoryResponseModel() { }
+
+        public CategoryResponseModel(Category category)
+        {
+            this.Category_id = category.Category_id;
+            this.Category_name = category.Category_name;
+        }
+        [Display(Name = "categoryID")]
+        public int Category_id { get; set; }
+
+        [Display(Name = "CategoryName")]
+        public string Category_name { get; set; }
+    }
 }

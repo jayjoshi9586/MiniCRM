@@ -44,6 +44,7 @@
     <Compile Include="Interface\IAccount.cs" />
     <Compile Include="Interface\IAdmin.cs" />
     <Compile Include="Interface\IBeacon.cs" />
+    <Compile Include="Interface\ICategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
