@@ -17,6 +17,7 @@ using MiniCRM.API.Filters;
 using System.Text;
 using System.Security.Cryptography;
 using DataAccessCore.Models;
+using System.Web.Security;
 
 namespace EasyCRM.API.Controllers
 {
@@ -37,12 +38,15 @@ namespace EasyCRM.API.Controllers
         }
 
         // GET: api/Admin/5
-        [JWTAuthenticationFilter]
+        [JWTAuthenticationFilter(AdmintypeId = 1)]
         public AdminGetModel Get(int id)
         {
             return adminobj.AdminGet(id);
         }
+        
+        private AdminType _adminType = new AdminType();
         [JWTAuthenticationFilter]
+        //[Authorize(Roles = "Super")]
         //[Route("GetByUsername")]
         public Admin GetbyUserName(string model)
         {
@@ -157,7 +161,7 @@ namespace EasyCRM.API.Controllers
         }
 
         // POST api/Account/EditProfile       
-        [JWTAuthenticationFilter]
+        [JWTAuthenticationFilter(AdmintypeId =1)]
         [Route("EditProfile")]
         public IHttpActionResult EditProfile(EditProfileBindingModel model)
         {

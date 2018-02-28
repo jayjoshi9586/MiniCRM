@@ -76,6 +76,7 @@ namespace MiniCRM.API.Controllers
         }
 
         [JWTAuthenticationFilter]
+        
         [Route("EditCategory")]
         public IHttpActionResult EditcategoryName(CategoryModel model)
         {
@@ -98,3 +99,7 @@ namespace MiniCRM.API.Controllers
         }
     }
 }
+//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImpheWpvc2hpIiwibmFtZWlkIjoiMSIsImlzcyI6InNlbGYiLCJhdWQiOiJodHRwOi8vd3d3LmV4YW1wbGUuY29tIiwiZXhwIjoxNTUwNzU3Mjk1LCJuYmYiOjE1MTkyMjEyOTV9.tK1i8JpjWk14jh8vwUyZoC9muN9IpSpnD_Ybqcg3Wa8
+// rajpatel eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6InJhanBhdGVsIiwibmFtZWlkIjoiNiIsImlzcyI6InNlbGYiLCJhdWQiOiJodHRwOi8vd3d3LmV4YW1wbGUuY29tIiwiZXhwIjoxNTUwODI0MzQ4LCJuYmYiOjE1MTkyODgzNDh9.knOo0Ko1iztaWPAbqFC9igDdA_LKSrNuFv3A1M495bA
+// rajkingpin eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6InJhamtpbmdwaW4iLCJuYW1laWQiOiI3IiwiaXNzIjoic2VsZiIsImF1ZCI6Imh0dHA6Ly93d3cuZXhhbXBsZS5jb20iLCJleHAiOjE1NTA4MzMzNjcsIm5iZiI6MTUxOTI5NzM2N30.B4RfY2zszvVhoPuR9gG6l2aiqb4f8zkp__zjBzA4S4U
+

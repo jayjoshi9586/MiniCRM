@@ -34,6 +34,7 @@ namespace DataAccessCore.Identity
             {
                 new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, userName),
                 new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.NameIdentifier, userId.ToString()),
+                 //new System.Security.Claims.Claim("CustomData", userId.ToString()),
             }, "Custom");
 
             var securityTokenDescriptor = new System.IdentityModel.Tokens.SecurityTokenDescriptor()

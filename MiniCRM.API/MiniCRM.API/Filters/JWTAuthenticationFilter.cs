@@ -10,11 +10,14 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using DataAccessCore.Implementation;
 using DataAccessCore.Identity;
+using DataAccessCore.Entities;
 
 namespace MiniCRM.API.Filters
 {
     public class JWTAuthenticationFilter : AuthorizationFilterAttribute
     {
+        //public string adminType { get; set; }
+        public int AdmintypeId { get; set; } 
 
         public override void OnAuthorization(HttpActionContext filterContext)
         {
